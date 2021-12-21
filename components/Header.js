@@ -13,7 +13,11 @@ function Header(){
                 </a>
             </Link>
 
-    
+            <Link href='/overview' className="object-right">
+                <button className="object-right px-5 py-1 font-medium transition-all duration-150 transform bg-white rounded-lg shadow-lg hover:shadow-2xl hover:bg-gray-300">
+                    Overview
+                </button>
+            </Link>
 
         </header>
     )

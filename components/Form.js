@@ -1,25 +1,11 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
 
-function Form(props) {
+export default function Form({ handleSubmit }) {
 
-    const [formInput, setFormInput] = useState({});
-
-
-    const handleChange = (e) => {
-        setFormInput({ ...formInput, [e.target.name]: e.target.value })
-
-    }
-
-    const onSubmit = (e) => {
-        e.preventDefault();
-        props.onSubmit(formInput);
-        e.target.reset();
-
-    }
     return (
         <>
 
-            <form onSubmit={onSubmit}>
+            <form onSubmit={handleSubmit}>
                 <div className="justify-center p-2 bg-green-300 rounded shadow-2xl h-52">
 
                     <div className="justify-center text-3xl font-semibold text-black ml-96 w-72 ">Creat Cookie Stand</div>
@@ -28,11 +14,11 @@ function Form(props) {
 
                     <div className="flex ... ">
 
-                        <label className="block ml-4 mr-2 text-sm font-bold text-black-700" for="Location">
+                        <label className="block ml-4 mr-2 text-sm font-bold text-black-700" htmlFor="Location">
                             Location
                         </label>
 
-                        <input onChange={handleChange}
+                        <input 
                             className="justify-center text-lg font-normal text-gray-800 rounded pl-96 pr-96"
                             id="Location"
                             type="text"
@@ -45,11 +31,11 @@ function Form(props) {
                     <div className="flex ... ">
 
                         <div>
-                            <label className="block mb-2 ml-6 text-sm font-bold text-black-700" for="MINCPH" >
+                            <label className="block mb-2 ml-6 text-sm font-bold text-black-700" htmlFor="MINCPH" >
                                 Minimum Customer per Hour
                             </label>
 
-                            <input onChange={handleChange}
+                            <input 
                                 className="justify-center mr-4 p-1 text-lg font-normal text-gray-7=800 rounded w-64 "
                                 id="MINCPH"
                                 type="number"
@@ -60,11 +46,11 @@ function Form(props) {
                         </div>
 
                         <div>
-                            <label className="block mb-2 ml-6 text-sm font-bold text-black-700" for="MAXCPH">
+                            <label className="block mb-2 ml-6 text-sm font-bold text-black-700" htmlFor="MAXCPH">
                                 Maximum Customer per Hour
                             </label>
 
-                            <input onChange={handleChange}
+                            <input 
                                 className="justify-center mr-4 p-1 text-lg font-normal text-gray-7=800 rounded w-64 "
                                 id="MAXCPH"
                                 type="number"
@@ -75,11 +61,11 @@ function Form(props) {
                         </div>
 
                         <div>
-                            <label className="block mb-2 ml-8 text-sm font-bold text-black-700" for="AVCPS">
+                            <label className="block mb-2 ml-8 text-sm font-bold text-black-700" htmlFor="AVCPS">
                                 Averege Cookies per Sale
                             </label>
 
-                            <input onChange={handleChange}
+                            <input 
                                 className="justify-center mr-4 p-1 text-lg font-normal text-gray-7=800 rounded w-64 "
                                 id="AVCPS"
                                 type="number"
@@ -104,10 +90,6 @@ function Form(props) {
 
             </form>
 
-
-
-
         </>
     )
 }
-export default Form;
