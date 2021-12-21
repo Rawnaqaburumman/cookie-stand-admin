@@ -14,7 +14,7 @@ function Form(props) {
         e.preventDefault();
         props.onSubmit(formInput);
         e.target.reset();
-###----
+
     }
     return (
         <>
