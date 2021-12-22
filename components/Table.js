@@ -68,7 +68,7 @@ export default function Table({ reports, hours}) {
     }
     return (
         <>
-            {reports.length > 0 ? <CreateReportTable /> : <h2 className="h-10 my-10 text-3xl font-bold text-gray-700">No Cookie Stands Available</h2>}
+            {reports.length > 0 ? <CreateTable /> : <h2 className="h-10 my-10 text-3xl font-bold text-gray-700">No Cookie Stands Available</h2>}
 
         </>
     )

@@ -5,7 +5,7 @@ import Header from "./Header"
 import Footer from "./Footer"
 import Form from "./Form"
 import Table from "./Table"
-import { workinghours } from "../pages/data"
+import { hours } from "../pages/data"
 
 export default function CookieStand() {
     const [reports, setReports] = useState([]);
@@ -29,7 +29,7 @@ export default function CookieStand() {
 
     function calculateHourlySales(minSales, maxSales, avgCookies) {
         let hourly_sales = []
-        for (let i = 0; i < workinghours.length; i++) {
+        for (let i = 0; i < hours.length; i++) {
             hourly_sales[i] = (Math.floor(Math.random() * (parseInt(maxSales) - parseInt(minSales) + 1) + parseInt(minSales))) * avgCookies
         }
         return hourly_sales
@@ -43,7 +43,7 @@ export default function CookieStand() {
             <>
                 <div className="flex flex-col items-center justify-center flex-1 w-full text-center bg-green-50">
                     <Form handleSubmit={handleSubmit} />
-                    <Table reports={reports} workinghours={workinghours} handleSubmit={handleSubmit}/>
+                    <Table reports={reports} hours={hours} handleSubmit={handleSubmit}/>
                 </div>
             </>
         )
