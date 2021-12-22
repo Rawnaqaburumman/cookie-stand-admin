@@ -1,4 +1,4 @@
-export default function Table({ reports, hours}) {
+export default function Table({ reports, hours,deleteHandler}) {
 
     function CreateTable() {
 
@@ -34,18 +34,20 @@ export default function Table({ reports, hours}) {
                     <tbody>
                         {reports.map(value =>
                             <tr key={value.id} className="odd:bg-green-400 even:bg-green-200" >
-                                <td className="text-lg border-b border-r border-gray-700 ">{value.location}</td>
+                                <td className="text-lg border-b border-r border-gray-700 ">{value.location}
+                               
+                                    <button className="justify-center w-8 h-10" onClick={() => {deleteHandler(value.id)}}>  <svg xmlns="http://www.w3.org/2000/svg" className="w-8 h-8 "  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                </svg>
+                                </button>
+                                </td>
                                 {value.hourly_sales.map(sale =>
                                     <td className="text-lg border-b border-r border-gray-600"> {sale.toFixed(3)}</td>
                                 )}
                                 <td className="text-lg border-b border-r border-gray-600">{(value.hourly_sales.reduce(function (a, b) { return a + b; }, 0)).toFixed(3)}</td>
                                 
-                                <td >
-                                    <button className="justify-center w-8 h-10" onClick={() => { removelocation(value.id)}}>  <svg xmlns="http://www.w3.org/2000/svg" className="w-8 h-8 "  fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                </svg>
-                                </button>
-                                </td>
+                              
+                            
                                 
                             </tr>
                         )}
@@ -63,12 +65,14 @@ export default function Table({ reports, hours}) {
             </>
         )
     }
-    function removelocation(id){
-        reports.splice(parseInt(id))
-    }
+  
     return (
         <>
-            {reports.length > 0 ? <CreateReportTable /> : <h2 className="h-10 my-10 text-3xl font-bold text-gray-700">No Cookie Stands Available</h2>}
+         {reports[0] == null && "No Coockie Stand Available"}
+         {reports[0] != null && CreateTable() }
+
+
+           
 
         </>
     )

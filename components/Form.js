@@ -22,7 +22,7 @@ export default function Form({ handleSubmit }) {
                             className="justify-center text-lg font-normal text-gray-800 rounded pl-96 pr-96"
                             id="Location"
                             type="text"
-                            name="Location"
+                            name="location"
                             required
                         />
                     </div>
@@ -40,7 +40,7 @@ export default function Form({ handleSubmit }) {
                                 id="MINCPH"
                                 type="number"
                                 min="0"
-                                name="minCustomers"
+                                name="min"
                                 required
                             />
                         </div>
@@ -55,7 +55,7 @@ export default function Form({ handleSubmit }) {
                                 id="MAXCPH"
                                 type="number"
                                 min="0"
-                                name="maxCustomers"
+                                name="max"
                                 required
                             />
                         </div>
@@ -70,7 +70,7 @@ export default function Form({ handleSubmit }) {
                                 id="AVCPS"
                                 type="number"
                                 min="0"
-                                name="avgCookies"
+                                name="avg"
                                 step="0.01"
                                 required
                             />

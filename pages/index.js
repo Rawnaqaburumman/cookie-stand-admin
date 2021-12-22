@@ -1,14 +1,36 @@
-import { useState } from 'react'
+import { useState } from 'react';
 
-import Admin from "../components/CookieStandAdmin"
+import LoginForm from '../components/loginForm'
+import axios from 'axios';
+import Admin from '../components/CookieStandAdmin'
 
-export default function Home() {
+const baseUrl ='https://cookie-stand-api-rawnaq.herokuapp.com/';
+const tokenUrl = baseUrl+'api/token/';
+
+const Home = () => {
+
+const [token, setToken] = useState('');
+
+const submitHandler = async (e, credintials)=>{
+  e.preventDefault();
+  axios.post(tokenUrl,credintials).then(data=>{
+    setToken(data.data.access)
+  });
+  console.log(token)
+}
+
 
   return (
+  <>
 
-    <div className="flex-col flexs">
-      <Admin/>
-    </div>
     
-  )
+    {!token ? <LoginForm submitHandler={submitHandler} /> : <Admin token={token}/>}
+    
+    </>  
+    )
+  
+
+  
+
 }
+export default Home;
