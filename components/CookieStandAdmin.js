@@ -60,11 +60,13 @@ export default function CookieStand(props) {
             url: `https://cookie-stand-api-rawnaq.herokuapp.com/api/v1/cookie_stands/${id}`,
             headers: { "Authorization": `Bearer ${props.token}` }
         }
-        await axios(config).then(res => {
-        setReports(res.data)
+        let result=reports.filter(del => del.id != id )
+        console.log(result)
+        await axios(config)
+        setReports(result)
 
 
-        })
+        
     }
 
      
